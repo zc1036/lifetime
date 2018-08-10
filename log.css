@@ -1,0 +1,31 @@
+
+body {
+    font-family: "sans";
+    padding: 0;
+    margin: 1em;
+}
+
+.log-box {
+    background-color: #003ada;
+    padding: 0 1em 1em 1em;
+    color: white;
+}
+
+.logit-button {
+    width: 100%;
+}
+
+.log-box > .log-box-boxtitle {
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+.log-box > input {
+    display: block;
+    width: 100%;
+}
+
+.log-box > button {
+    margin-top: 1em;
+}
+
