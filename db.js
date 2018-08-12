@@ -1,13 +1,17 @@
 
-db = new Dexie('lifetime_records');
+'use strict';
+
+var db = new Dexie('lifetime_records');
 
 db.version(1).stores({
-    friends: '++id,*tags'
+    friends: '++id,acttype,*tags'
 });
 
-function logTime(tags, minutes) {
+function logTime(acttype, tags, minutes, datetime) {
     return db.friends.add({
+        acttype: acttype,
         tags: tags,
-        minutes: minutes
+        minutes: minutes,
+        datetime: datetime
     });
 }

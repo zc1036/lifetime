@@ -7,7 +7,14 @@ body {
 
 html {   overflow-y: auto !important; }
 
-#container {
+#button-container {
+    bottom: 15px;
+    right: 10px;
+    position: absolute;
+}
+
+#button-inner {
+    padding: 0em;
 }
 
 .log-box {
@@ -34,4 +41,19 @@ html {   overflow-y: auto !important; }
 
 .log-box > button {
     margin-top: 1em;
+}
+
+#page-body {
+}
+
+#page-body > h1 {
+    padding: 1em;
+    background-color: #ff478a;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+}
+
+.faded {
+    color: rgba(255,255,255,.4);
 }
