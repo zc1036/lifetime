@@ -89,7 +89,7 @@ Vue.component('log-button', {
                                .map(val => val.trim().toLowerCase())
                                .filter(val => val.length)),
                         parseInt(this.duration_h) * 60 + parseInt(this.duration_m),
-                        Math.round((new Date()).getTime() / 1000))
+                        getCurrentTimeUTC())
                     .then(function () {
                         console.log('yes')
                     });

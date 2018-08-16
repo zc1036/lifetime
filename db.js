@@ -4,7 +4,7 @@
 var db = new Dexie('lifetime_records');
 
 db.version(1).stores({
-    friends: '++id,acttype,*tags'
+    friends: '++id,datetime,acttype,*tags'
 });
 
 function logTime(acttype, tags, minutes, datetime) {
@@ -14,4 +14,8 @@ function logTime(acttype, tags, minutes, datetime) {
         minutes: minutes,
         datetime: datetime
     });
+}
+
+function getLogsSince(datetime) {
+    return db.friends.where('datetime').above(datetime);
 }

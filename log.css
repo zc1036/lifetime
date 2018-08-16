@@ -5,12 +5,13 @@ body {
     margin: 0;
 }
 
-html {   overflow-y: auto !important; }
+html { overflow-y: auto !important; }
 
 #button-container {
     bottom: 15px;
     right: 10px;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
 }
 
 #button-inner {
@@ -56,4 +57,12 @@ html {   overflow-y: auto !important; }
 
 .faded {
     color: rgba(255,255,255,.4);
+}
+
+.log-data {
+    margin: 1em;
+}
+
+.log-tags {
+    font-style: italic;
 }
