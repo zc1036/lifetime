@@ -24,7 +24,7 @@
 	<script src="db.js"></script>
   </head>
   <body>
-	<div id="app">
+	<div id="app" v-cloak>
       <v-app>
         <v-content>
           <div id="button-container">
@@ -33,12 +33,16 @@
             </div>
           </div>
           <div id="page-body">
-            <h1 class="display-1"><span class="faded">今日</span> Today</h1>
+            <h1 class="display-1">Today <span class="faded">今日</span></h1>
             <v-card v-for="item in items" class="log-data">
-              <v-card-title primary-title>
-                <div>
-                  <h3 class="headline">{{item.acttype}}</h3>
-                  <div class="log-tags">{{item.tags.join(' ')}}</div>
+              <v-card-title primary-title class="log-card">
+                <div class="log-data-wide">
+                  <div class="log-data-time">{{Math.floor(item.minutes / 60)}}</div>
+                  <div class="log-data-time-minutes" :style="'height: ' + ((item.minutes + 59) % 60 / 59 * 100).toString() + '%;'"></div>
+                  <div class="asdf">
+                    <h3 class="headline">{{item.acttype}}</h3>
+                    <div class="log-tags"><span class="tag-badge" v-for="tag in item.tags">{{tag}}</span> </div>
+                  </div>
                 </div>
               </v-card-title>
             </v-card>

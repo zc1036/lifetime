@@ -83,7 +83,7 @@ Vue.component('log-button', {
             }
 
             if (this.$refs.logForm.validate()) {
-                logTime(this.acttype,
+                logTime(this.acttype.toLowerCase(),
                         _.uniq(this.tags
                                .split(' ')
                                .map(val => val.trim().toLowerCase())

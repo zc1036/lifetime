@@ -3,7 +3,7 @@
 
 Vue.use(Vuetify);
 
-getLogsSince(getCurrentTimeUTC() - 60 * 60 * 24 * 4).toArray(function(res) {
+getLogsSince(getCurrentTimeUTC() - 60 * 60 * 24 * 1).toArray(function(res) {
 
     let VueMain = new Vue({
         el: '#app',

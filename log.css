@@ -1,4 +1,8 @@
 
+[v-cloak] {
+    display: none;
+}
+
 body {
     font-family: "sans";
     padding: 0;
@@ -52,7 +56,6 @@ html { overflow-y: auto !important; }
     background-color: #ff478a;
     color: white;
     font-weight: bold;
-    text-align: right;
 }
 
 .faded {
@@ -64,5 +67,56 @@ html { overflow-y: auto !important; }
 }
 
 .log-tags {
-    font-style: italic;
+}
+
+.tag-badge {
+    border: 1px solid lightgray;
+    padding: .1em .4em .1em .4em;
+    border-radius: 2px;
+    margin-right: .2em;
+    color: #888;
+    line-height: 1.5;
+}
+
+.log-data-wide {
+    width: 100%;
+    height: 4.5em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.log-card {
+    padding: 0 !important;
+    line-height: 1;
+}
+
+.log-data-time-minutes {
+    width: 1px;
+    overflow: hidden;
+    display: inline-block;
+    background-color: lightgray;
+    font-size: 3em;
+    align-self: flex-end;
+    margin-right: .3em;
+}
+
+.headline {
+    flex-direction: column;
+}
+
+.log-data-time {
+    float: left;
+    border-radius: 2px 0 0 2px;
+    font-size: 3em;
+    padding: .2em .3em .2em .3em;
+    color: #444;
+    font-weight: bold;
+}
+
+.asdf {
+    overflow-x: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
