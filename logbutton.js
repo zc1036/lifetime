@@ -83,14 +83,15 @@ Vue.component('log-button', {
             }
 
             if (this.$refs.logForm.validate()) {
-                logTime(this.acttype.toLowerCase(),
+                logTime(this.acttype.trim().toLowerCase(),
                         _.uniq(this.tags
                                .split(' ')
                                .map(val => val.trim().toLowerCase())
                                .filter(val => val.length)),
                         parseInt(this.duration_h) * 60 + parseInt(this.duration_m),
                         getCurrentTimeUTC())
-                    .then(function () {
+                    .then(function (a) {
+                        console.log(a)
                         console.log('yes')
                     });
 
