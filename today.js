@@ -6,15 +6,24 @@ Vue.use(Vuetify);
 let VueMain = new Vue({
     el: '#app',
 
+    methods: {
+        dateToDisplayString: dateToDisplayString
+    },
+
     data() {
         return {
-            items: []
+            items: [],
+            todaysDate: (new Date()).toLocaleDateString('en-US',
+                                                        { 'day': 'numeric',
+                                                          'month': 'numeric' })
         }
     },
 });
 
-getLogsSince(getCurrentTimeUTC() - 60 * 60 * 24 * 1).toArray(function(items) {
-    items.sort(function(a, b) { return b.minutes - a.minutes; });
+getLogsSince(Math.floor(getCurrentTimeUTC() / 60 / 60 / 24) * 60 * 60 * 24).then(function(args) {
+    let [ items, totals ] = args;
+
+    items.sort(function(a, b) { return b.datetime - a.datetime; });
 
     VueMain.items = items;
 
@@ -25,12 +34,12 @@ getLogsSince(getCurrentTimeUTC() - 60 * 60 * 24 * 1).toArray(function(items) {
     };
 
     var data = {
-        labels: items.map(function(item) {
-            return item.acttype;
+        labels: totals.map(function(item) {
+            return item[0];
         }),
 
-        series: items.map(function(item) {
-            return item.minutes / 60;
+        series: totals.map(function(item) {
+            return item[1] / 60;
         })
     };
 

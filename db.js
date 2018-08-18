@@ -17,5 +17,16 @@ function logTime(acttype, tags, minutes, datetime) {
 }
 
 function getLogsSince(datetime) {
-    return db.friends.where('datetime').above(datetime);
+    return new Promise(function(resolve, reject) {
+        db.friends
+            .where('datetime')
+            .above(datetime)
+            .toArray(function (arr) {
+                let set = { };
+
+                arr.forEach(item => set[item.acttype] = item.minutes + (set[item.acttype] ? set[item.acttype] : 0));
+
+                resolve([ arr, Object.entries(set) ]);
+            });
+    });
 }

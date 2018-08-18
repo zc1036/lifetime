@@ -35,16 +35,19 @@
             </div>
           </div>
           <div id="page-body">
-            <h1 class="display-1">Today <span class="faded">今日</span></h1>
+            <h1 class="display-1">Today <span class="faded" id="todays-date">{{todaysDate}}</span></h1>
             <div class="ct-chart"></div>
             <v-card v-for="item in items" class="log-data">
               <v-card-title primary-title class="log-card">
                 <div class="log-data-wide">
                   <div class="log-data-time"><span>{{Math.floor(item.minutes / 60)}}</span></div>
                   <div class="log-data-time-minutes" :style="'height: ' + Math.round(item.minutes % 60 / 60 * 100).toString() + '%;'"></div>
-                  <div class="asdf">
+                  <div class="log-info">
                     <h3 class="headline">{{item.acttype}}</h3>
-                    <div class="log-tags"><span class="tag-badge" v-for="tag in item.tags">{{tag}}</span> </div>
+                    <div class="log-tags">
+                      <span class="log-date">{{dateToDisplayString(new Date(item.datetime * 1000))}}</span>
+                      <span class="tag-badge" v-for="tag in item.tags">{{tag}}</span>
+                    </div>
                   </div>
                 </div>
               </v-card-title>

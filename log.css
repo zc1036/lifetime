@@ -118,8 +118,9 @@ html { overflow-y: auto !important; }
     align-items: center;
 }
 
-.asdf {
+.log-info {
     overflow-x: auto;
+    overflow-y: hidden;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
