@@ -71,9 +71,18 @@ Vue.component('log-button', {
             this.showLogNewAction = !this.showLogNewAction;
         },
 
+        resetForm() {
+            this.duration = null;
+            this.tags = '';
+            this.acttype = '';
+            this.duration_h = 'Hours';
+            this.duration_m = 'Minutes';
+        },
+
         cancelLog() {
             this.$refs.logForm.reset();
             this.toggleShowLogBox();
+            this.resetForm();
         },
 
         confirmLog() {
@@ -89,14 +98,11 @@ Vue.component('log-button', {
                                .map(val => val.trim().toLowerCase())
                                .filter(val => val.length)),
                         parseInt(this.duration_h) * 60 + parseInt(this.duration_m),
-                        getCurrentTimeUTC())
-                    .then(function (a) {
-                        console.log(a)
-                        console.log('yes')
-                    });
+                        getCurrentTimeUTC());
 
                 this.$refs.logForm.reset();
                 this.toggleShowLogBox();
+                this.resetForm();
             }
         },
 
