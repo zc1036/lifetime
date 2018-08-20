@@ -20,7 +20,9 @@ let VueMain = new Vue({
     },
 });
 
-getLogsSince(Math.floor(getCurrentTimeUTC() / 60 / 60 / 24) * 60 * 60 * 24 - (new Date()).getTimezoneOffset()).then(function(args) {
+alert('getting items in the last ' + (( getCurrentTimeUTC() - ((Math.floor((getCurrentTimeUTC() - (new Date()).getTimezoneOffset() * 60) / 60 / 60 / 24) * 60 * 60 * 24) + (new Date()).getTimezoneOffset() * 60)) / 60 / 60).toString() + ' hours')
+
+getLogsSince((Math.floor((getCurrentTimeUTC() - (new Date()).getTimezoneOffset() * 60) / 60 / 60 / 24) * 60 * 60 * 24) + (new Date()).getTimezoneOffset() * 60).then(function(args) {
     let [ items, totals ] = args;
 
     items.sort(function(a, b) { return b.datetime - a.datetime; });
